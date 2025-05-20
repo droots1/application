@@ -1,7 +1,7 @@
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { SafeAreaView } from "@/components/ui/safe-area-view";
 import { useFonts } from "expo-font";
-import { Slot } from "expo-router";
+import { Slot, Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "@/global.css";
@@ -9,13 +9,6 @@ import { Button, ButtonText } from "@/components/ui/button";
 import { AuthProvider } from "@/contexts/auth-context";
 import { LocalizationProvider } from "@/i18n/localization-context";
 	
-function Example() {
-  return (
-    <Button size="md" variant="solid" action="primary" >
-          <ButtonText>Hello World!</ButtonText>
-        </Button>
-  );
-}
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -40,7 +33,12 @@ export default function RootLayout() {
       <LocalizationProvider>
       <AuthProvider>
        <SafeAreaView style={{ flex: 1 }}>
-        <Slot />
+        <Stack>
+                <Stack.Screen name="index" options={{ headerShown: false }} />
+                <Stack.Screen name="auth/signin" options={{ headerShown: false }} />
+                <Stack.Screen name="auth/signup" options={{ headerShown: false }} />
+                <Stack.Screen name="auth/forgot-password" options={{ headerShown: false }} />
+        </Stack>
       </SafeAreaView>
       </AuthProvider>
       </LocalizationProvider>

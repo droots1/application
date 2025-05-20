@@ -1,6 +1,7 @@
 {
     "splash": {
-      "welcome": "Welcome to the App",
+      "welcome": "Welcome to the Droots",
+      "description": "Awaken Consciousness Of Life With The Wisdom Of Spirituality",
       "loading": "Loading..."
     },
     "common": {
@@ -9,7 +10,8 @@
       "yes": "Yes",
       "no": "No",
       "language": "Language",
-      "back": "Back"
+      "back": "Back",
+      "getStarted": "Get Started"
     },
     "signin": {
       "title": "Sign In",

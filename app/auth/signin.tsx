@@ -66,7 +66,7 @@ const signin = () => {
       setIsLoading(true);
       await signIn(data.email, data.password);
       toast.show({
-        placement: "bottom right",
+        placement: "top",
         render: ({ id }) => {
           return (
             <Toast nativeID={id} variant="solid" action="success">
@@ -78,7 +78,7 @@ const signin = () => {
       reset();
     } catch (error) {
       toast.show({
-        placement: "bottom right",
+        placement: "top",
         render: ({ id }) => {
           return (
             <Toast nativeID={id} variant="solid" action="error">
@@ -103,9 +103,11 @@ const signin = () => {
 
   return (
     <VStack className="max-w-[440px] w-full px-4" space="md">
-      <VStack className="md:items-center" space="md">
-        <VStack className="items-center mt-20">
-          <Image source={require("@/assets/images/logo.png")} />
+      <VStack className="md:items-center mt-20" space="md">
+        <VStack className="items-center ">
+          <Image 
+          style={{ width: 100, height: 100 }}
+          source={require("@/assets/images/logo.png")} />
           <Heading className="md:text-center" size="3xl">
             Log in
           </Heading>
