@@ -11,6 +11,7 @@ interface AuthContextType {
   signOut: () => Promise<void>;
   signUp: (email: string, password: string) => Promise<void>;
   resetPassword: (email: string) => Promise<void>;
+  loginWithGoogle: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -39,7 +40,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return () => subscription.unsubscribe();
   }, []);
 
-
+  useEffect(() => {
+    if (!isLoading && session) {
+      router.replace('/home');
+    }
+  }, [isLoading, session]);
   
 
   async function signIn(email: string, password: string) {
@@ -51,7 +56,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       });
 
       if (error) throw error;
-      router.replace('/');
+      router.replace('/home');
     } catch (error: any) {
       console.error('Sign in error:', error.message);
       throw error;
@@ -110,6 +115,34 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
+  async function loginWithGoogle() {
+    try {
+      setIsLoading(true);
+  
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          queryParams: {
+            access_type: 'offline',
+            prompt: 'consent',
+          },
+          redirectTo: window.location.origin, // Optional: use this if redirect isn't working
+        },
+      });
+  
+      if (error) throw error;
+  
+      // User will be redirected to Google, then back to your app
+    } catch (error: any) {
+      console.error('Google login error:', error.message);
+      throw error;
+    } finally {
+      setIsLoading(false);
+    }
+  }
+  
+
+
   return (
     <AuthContext.Provider
       value={{
@@ -120,6 +153,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         signOut,
         signUp,
         resetPassword,
+        loginWithGoogle,
       }}
     >
       {children}

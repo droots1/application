@@ -33,11 +33,15 @@ export default function RootLayout() {
       <LocalizationProvider>
       <AuthProvider>
        <SafeAreaView style={{ flex: 1 }}>
-        <Stack>
-                <Stack.Screen name="index" options={{ headerShown: false }} />
-                <Stack.Screen name="auth/signin" options={{ headerShown: false }} />
-                <Stack.Screen name="auth/signup" options={{ headerShown: false }} />
-                <Stack.Screen name="auth/forgot-password" options={{ headerShown: false }} />
+        <Stack
+        screenOptions={{
+          headerShown: false,
+        }}>
+                <Stack.Screen name="index"  />
+                <Stack.Screen name="auth/signin"  />
+                <Stack.Screen name="auth/signup"  />
+                <Stack.Screen name="auth/forgot-password"  />
+                <Stack.Screen name="home"  />
         </Stack>
       </SafeAreaView>
       </AuthProvider>

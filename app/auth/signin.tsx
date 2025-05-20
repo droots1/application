@@ -56,7 +56,7 @@ const signin = () => {
     resolver: zodResolver(loginSchema),
   });
   const toast = useToast();
-  const { signIn } = useAuth();
+  const { signIn, loginWithGoogle} = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
@@ -249,7 +249,8 @@ const signin = () => {
             variant="outline"
             action="secondary"
             className="w-full gap-1"
-            onPress={() => {}}
+            onPress={() => {loginWithGoogle()}}
+            
             isDisabled={isLoading}
           >
             <ButtonText className="font-medium">
