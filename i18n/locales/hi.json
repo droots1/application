@@ -1,4 +1,38 @@
 {
+  "splash": {
+    "welcome": "ऐप में आपका स्वागत है",
+    "loading": "लोड हो रहा है..."
+  },
+  "common": {
+    "ok": "ठीक है",
+    "cancel": "रद्द करें",
+    "yes": "हाँ",
+    "no": "नहीं",
+    "language": "भाषा",
+    "back": "वापस"
+  },
+  "signin": {
+    "title": "साइन इन करें",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "button": "साइन इन",
+    "forgot_password": "पासवर्ड भूल गए?",
+    "no_account": "कोई खाता नहीं है?",
+    "signup": "साइन अप करें"
+  },
+  "signup": {
+    "title": "साइन अप करें",
+    "name": "पूरा नाम",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "confirm_password": "पासवर्ड की पुष्टि करें",
+    "button": "खाता बनाएँ",
+    "have_account": "पहले से खाता है?",
+    "signin": "साइन इन करें"
+  },
+  "home": {
     "greeting": "नमस्ते",
-    "language": "भाषा"
+    "explore": "खोजें",
+    "profile": "प्रोफ़ाइल"
+  }
 }

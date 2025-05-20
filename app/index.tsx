@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
+import { Pressable } from "@/components/ui/pressable";
 import { useLocalization } from "@/i18n/localization-context";
+import { Link, router } from "expo-router";
 import { Text, View } from "react-native";
 
 export default function Index() {
@@ -17,11 +19,17 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>{t('greeting')}</Text>
+      <Text>{t('splash.welcome')}</Text>
       <Text>Edit app/index.tsx to edit this screen.</Text>
       <Button onPress={toggleLanguage}>
         <Text> {locale === "en" ? "Switch Hindi" : "Switch to English"}</Text>
       </Button>
+      
+      <Link href="/auth/signin" asChild>
+        <Pressable>
+          <Text>Go to Login</Text>
+        </Pressable>
+      </Link>
     </View>
   );
 }

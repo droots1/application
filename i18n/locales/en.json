@@ -1,4 +1,39 @@
 {
-    "greeting": "Hello",
-    "language": "Language"
-}
+    "splash": {
+      "welcome": "Welcome to the App",
+      "loading": "Loading..."
+    },
+    "common": {
+      "ok": "OK",
+      "cancel": "Cancel",
+      "yes": "Yes",
+      "no": "No",
+      "language": "Language",
+      "back": "Back"
+    },
+    "signin": {
+      "title": "Sign In",
+      "email": "Email",
+      "password": "Password",
+      "button": "Sign In",
+      "forgot_password": "Forgot Password?",
+      "no_account": "Don't have an account?",
+      "signup": "Sign Up"
+    },
+    "signup": {
+      "title": "Sign Up",
+      "name": "Full Name",
+      "email": "Email",
+      "password": "Password",
+      "confirm_password": "Confirm Password",
+      "button": "Create Account",
+      "have_account": "Already have an account?",
+      "signin": "Sign In"
+    },
+    "home": {
+      "greeting": "Hello",
+      "explore": "Explore",
+      "profile": "Profile"
+    }
+  }
+  
