@@ -6,7 +6,7 @@ import { Heading } from "@/components/ui/heading";
 import { Text } from "@/components/ui/text";
 import { LinkText } from "@/components/ui/link";
 import { Link } from "@/components/ui/link";
-import { Image } from "react-native";
+import { Image, ScrollView } from "react-native";
 import {
   FormControl,
   FormControlError,
@@ -67,61 +67,68 @@ type SignUpSchemaType = z.infer<typeof signUpSchema>;
 
 
 const signup = () => {
-    const {
-      control,
-      handleSubmit,
-      reset,
-      formState: { errors },
-    } = useForm<SignUpSchemaType>({
-      resolver: zodResolver(signUpSchema),
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<SignUpSchemaType>({
+    resolver: zodResolver(signUpSchema),
+  });
+  const toast = useToast();
+
+  const onSubmit = (data: SignUpSchemaType) => {
+    if (data.password === data.confirmpassword) {
+      toast.show({
+        placement: "top",
+        render: ({ id }) => {
+          return (
+            <Toast nativeID={id} variant="solid" action="success">
+              <ToastTitle>Success</ToastTitle>
+            </Toast>
+          );
+        },
+      });
+      reset();
+    } else {
+      toast.show({
+        placement: "top",
+        render: ({ id }) => {
+          return (
+            <Toast nativeID={id} variant="solid" action="error">
+              <ToastTitle>Passwords do not match</ToastTitle>
+            </Toast>
+          );
+        },
+      });
+    }
+  };
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const handleState = () => {
+    setShowPassword((showState) => {
+      return !showState;
     });
-    const toast = useToast();
-  
-    const onSubmit = (data: SignUpSchemaType) => {
-      if (data.password === data.confirmpassword) {
-        toast.show({
-          placement: "top",
-          render: ({ id }) => {
-            return (
-              <Toast nativeID={id} variant="solid" action="success">
-                <ToastTitle>Success</ToastTitle>
-              </Toast>
-            );
-          },
-        });
-        reset();
-      } else {
-        toast.show({
-          placement: "top",
-          render: ({ id }) => {
-            return (
-              <Toast nativeID={id} variant="solid" action="error">
-                <ToastTitle>Passwords do not match</ToastTitle>
-              </Toast>
-            );
-          },
-        });
-      }
-    };
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  
-    const handleState = () => {
-      setShowPassword((showState) => {
-        return !showState;
-      });
-    };
-    const handleConfirmPwState = () => {
-      setShowConfirmPassword((showState) => {
-        return !showState;
-      });
-    };
-    const handleKeyPress = () => {
-      Keyboard.dismiss();
-      handleSubmit(onSubmit)();
-    };
-    const router = useRouter();
-    return (
+  };
+  const handleConfirmPwState = () => {
+    setShowConfirmPassword((showState) => {
+      return !showState;
+    });
+  };
+  const handleKeyPress = () => {
+    Keyboard.dismiss();
+    handleSubmit(onSubmit)();
+  };
+  const router = useRouter();
+  return (
+    <ScrollView
+      className="flex-1"
+      contentContainerStyle={{
+        paddingHorizontal: 15,
+        paddingVertical: 15,
+      }}
+    >
       <VStack className="max-w-[440px] w-full px-4" space="md">
         <VStack className="md:items-center" space="md">
           {/* <Pressable
@@ -136,7 +143,9 @@ const signup = () => {
             />
           </Pressable> */}
           <VStack className="items-center mt-20">
-           <Image className="w-200" source={require("@/assets/images/logo.png")} />
+            <Image
+              style={{ width: 100, height: 100 }}
+              className="w-200" source={require("@/assets/images/logo.png")} />
             <Heading className="md:text-center" size="3xl">
               Sign up
             </Heading>
@@ -262,7 +271,7 @@ const signup = () => {
                       returnKeyType="done"
                       type={showConfirmPassword ? "text" : "password"}
                     />
-  
+
                     <InputSlot onPress={handleConfirmPwState} className="pr-3">
                       <InputIcon
                         as={showConfirmPassword ? EyeIcon : EyeOffIcon}
@@ -278,7 +287,7 @@ const signup = () => {
                 </FormControlErrorText>
               </FormControlError>
             </FormControl>
-  
+
             <Controller
               name="rememberme"
               defaultValue={false}
@@ -292,7 +301,7 @@ const signup = () => {
                   aria-label="Remember me"
                 >
                   <CheckboxIndicator>
-                    <CheckboxIcon  as={CheckIcon} />
+                    <CheckboxIcon as={CheckIcon} />
                   </CheckboxIndicator>
                   <CheckboxLabel>
                     I accept the Terms of Use & Privacy Policy
@@ -301,7 +310,7 @@ const signup = () => {
               )}
             />
           </VStack>
-  
+
           <VStack className="w-full my-7" space="lg">
             <Button className="w-full" onPress={handleSubmit(onSubmit)}>
               <ButtonText className="font-medium">Sign up</ButtonText>
@@ -310,7 +319,7 @@ const signup = () => {
               variant="outline"
               action="secondary"
               className="w-full gap-1"
-              onPress={() => {}}
+              onPress={() => { }}
             >
               <ButtonText className="font-medium">
                 Continue with Google
@@ -331,7 +340,8 @@ const signup = () => {
           </HStack>
         </VStack>
       </VStack>
-    );
+    </ScrollView>
+  );
 };
 
 export default signup;
