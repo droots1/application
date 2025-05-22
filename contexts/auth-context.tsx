@@ -42,7 +42,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (!isLoading && session) {
-      router.replace('/home');
+      router.replace('/(tabs)');
     }
   }, [isLoading, session]);
   

@@ -3,18 +3,18 @@ import { vars } from 'nativewind';
 
 export const config = {
   light: vars({
-    '--color-primary-0': '179 179 179',
-    '--color-primary-50': '153 153 153',
-    '--color-primary-100': '128 128 128',
-    '--color-primary-200': '115 115 115',
-    '--color-primary-300': '102 102 102',
-    '--color-primary-400': '82 82 82',
-    '--color-primary-500': '51 51 51',
-    '--color-primary-600': '41 41 41',
-    '--color-primary-700': '31 31 31',
-    '--color-primary-800': '13 13 13',
-    '--color-primary-900': '10 10 10',
-    '--color-primary-950': '8 8 8',
+    '--color-primary-0': '255 225 236',   // #ffe1ec
+    '--color-primary-50': '255 225 236',  // #ffe1ec
+    '--color-primary-100': '255 177 197', // #ffb1c5
+    '--color-primary-200': '255 126 158', // #ff7e9e
+    '--color-primary-300': '255 76 119',  // #ff4c77
+    '--color-primary-400': '255 26 80',   // #ff1a50
+    '--color-primary-500': '230 0 55',    // #e60037
+    '--color-primary-600': '180 0 43',    // #b4002b
+    '--color-primary-700': '129 0 29',    // #81001d
+    '--color-primary-800': '80 0 17',     // #500011
+    '--color-primary-900': '33 0 5',      // #210005
+    '--color-primary-950': '33 0 5',      // Reused #210005 for 950
 
     /* Secondary  */
     '--color-secondary-0': '253 253 253',

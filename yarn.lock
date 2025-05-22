@@ -5371,6 +5371,11 @@ expo-font@~12.0.7, expo-font@~12.0.8:
   dependencies:
     fontfaceobserver "^2.1.0"
 
+expo-image@^2.1.7:
+  version "2.1.7"
+  resolved "https://registry.npmjs.org/expo-image/-/expo-image-2.1.7.tgz"
+  integrity sha512-p2Gr8fP/YakFHHo4rbpJbRWwKNrZp1GzSD91WEG3ZYAbTVdTjheJ6gUxXgggFaxEbaY+4WeQ0c5j9tZq8+3cEg==
+
 expo-json-utils@~0.13.0:
   version "0.13.1"
   resolved "https://registry.npmjs.org/expo-json-utils/-/expo-json-utils-0.13.1.tgz"

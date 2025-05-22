@@ -13,7 +13,7 @@ export default function HomeLayout() {
   const { t } = useLocalization();
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView>
       <Stack 
        screenOptions={{ headerShown: false }}
       >

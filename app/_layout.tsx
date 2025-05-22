@@ -37,11 +37,10 @@ export default function RootLayout() {
         screenOptions={{
           headerShown: false,
         }}>
-                <Stack.Screen name="index"  />
                 <Stack.Screen name="auth/signin"  />
                 <Stack.Screen name="auth/signup"  />
                 <Stack.Screen name="auth/forgot-password"  />
-                <Stack.Screen name="home"  />
+                <Stack.Screen name="(tabs)"  />
         </Stack>
       </SafeAreaView>
       </AuthProvider>
