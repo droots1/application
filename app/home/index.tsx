@@ -171,7 +171,10 @@ const Home = () => {
         >
           {/* Header */}
           <View className="flex flex-row justify-between items-center mb-6">
-            <Pressable className="flex flex-row items-center gap-2">
+            <Pressable 
+              className="flex flex-row items-center gap-2"
+              onPress={() => router.push('/profile')}
+            >
               <Image
                 source={{ uri: user?.user_metadata?.avatar_url || "https://picsum.photos/200" }}
                 className="w-12 h-12 rounded-full"

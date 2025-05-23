@@ -1,11 +1,14 @@
 import { View, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Profile from "../profile";
 
 export default function TempleScreen() {
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View className="flex-1 items-center justify-center">
-        <Text className="text-xl font-semibold">Temple Screen</Text>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text>Temple</Text>
+        <Profile />
       </View>
     </SafeAreaView>
   );
